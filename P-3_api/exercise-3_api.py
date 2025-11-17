@@ -1,6 +1,6 @@
 import requests
 
-apiKey = "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"
+apiKey = "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"
 url = "https://openrouter.ai/api/v1/chat/completions"
 
 
@@ -18,17 +18,12 @@ while True:
         continue
 
     data = {
-        "model": "deepseek/deepseek-r1-0528-qwen3-8b:free",
+        "model": "openai/gpt-oss-20b:free",
         "messages": [{"role": "user", "content": userInput}]
     }
 
     response = requests.post(url, headers=headers, json=data)
 
-    # if response.status_code == 200:
-    #     reply = response.json()["choices"][0]["message"]["content"]
-    #     print(f"AI: {reply}\n")
-    # else:
-    #     print(f"Error {response.status_code}: {response.text}")
     print("Status code:", response.status_code)
     print("Raw response:", response.text)
 
